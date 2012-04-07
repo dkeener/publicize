@@ -49,27 +49,27 @@ Features
 
 * Specify the name under which a model will be exposed as a resource.
 
-  publicize_model
-  publicize_model :as => :entry
+    publicize_model
+    publicize_model :as => :entry
 
 * Specify which fields will be exposed for a resource.
 
-  publicize_field :name
+    publicize_field :name
 
 * Specify alternate names for exposed fields, i.e. - the web service may
   expose friendlier names than the underlying database.
 
-  publicize_field :country_of_origin, :as => :country
+    publicize_field :country_of_origin, :as => :country
 
 * Allows the exposure of "virtual" fields for a web service, i.e. - the
   output of a method can be publicized, not just database-derived model
   attributes.
 
-  publicize_field :score, :as => :rating
+    publicize_field :score, :as => :rating
 
 * Specify the RESTful actions in which a field is available.
 
-  publicize_field :score, :as => :rating, :only => [:list, :show]
+    publicize_field :score, :as => :rating, :only => [:list, :show]
 
 * Produce JSON or XML output for resources, exposing resources and fields
   in the manner specified by the DSL.
@@ -84,10 +84,10 @@ Requirements
 Install
 -------
 
-Installation is easy. Simply install the gem and then configure your Rails
-application's Gemfile to reference the gem.
+Installation is easy.
 
 * gem install publicize
+* Configure your Rails application's Gemfile to reference the gem.
 
 
 Author
