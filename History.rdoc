@@ -1,11 +1,12 @@
 === 0.0.1 2010-06-11
 
 * 1 Demo release to accompany a talk at the Northern Virginia Ruby Users
-    Group (NovaRUG). The talk was entitled "Specifying Web Services." The
-    accompanying code was a sample domain-specific language (DSL) for 
-    defining a mapping between internal resource and the view of those
-    resources provided to the outside world. The concepts came from actual
-    experiences building sophisticated API's for a video news site and an
-    online contest platform.
+Group (NovaRUG). The talk was entitled "Specifying Web Services." The
+accompanying code was a sample domain-specific language (DSL) for 
+defining a mapping between internal resource and the view of those
+resources provided to the outside world. The concepts came from actual
+experiences building sophisticated API's for a video news site and an
+online contest platform.
+
   * Defines whether a resource is publicized and under what name.
   * Defines which attributes are publicized.
