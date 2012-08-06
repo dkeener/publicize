@@ -1,0 +1,4 @@
+class UnpublicizedModel
+
+
+end
