@@ -19,7 +19,7 @@ module Publicize
       # it may be a method rather than a database-derived class attribute.
 
       def publicize_field(name, opts={})
-        publicized_fields << PublicizedField.new(name, opts[:as].nil? ? name : opts[:as])
+        publicized_fields << PublicizedField.new(name, opts[:as] || name)
       end
 
       # Defines whether 1) the resource is publicized, and 2) optionally under

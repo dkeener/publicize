@@ -20,13 +20,24 @@ describe Publicized do
       first_key.should == 'entry'
     end
 
-    context 'when attributes are not publicized' do
+    context 'when fields are not publicized' do
       it 'publicizes an empty hash' do
         json = subject.to_json
         hash = json_to_hash json
-        publicized_attributes = hash.values.pop
-        publicized_attributes.should be_blank
+        public_attributes = hash.values.pop
+        public_attributes.should be_blank
       end
+    end
+
+    context 'when fields are publicized' do
+      before { Publicized.send :publicize_field,:country_of_origin,:as => :country }
+      it 'publicizes them' do
+        json = subject.to_json
+        hash = json_to_hash json
+        public_attributes = hash.values.pop
+        public_attributes.should == {"country" => ""}
+      end
+
     end
 
   end
