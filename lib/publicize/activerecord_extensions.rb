@@ -25,8 +25,9 @@ module Publicize
       # Defines whether 1) the resource is publicized, and 2) optionally under
       # which name.
 
-      def publicize_model(name = self.name)
-        @publicized_name = name.to_s.downcase.dasherize
+      def publicize_model(*args)
+        options = args.extract_options!
+        @publicized_name = options[:as] || name.to_s.downcase.dasherize
         @publicized = true
       end
 
