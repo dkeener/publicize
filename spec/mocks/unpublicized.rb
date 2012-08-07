@@ -2,5 +2,4 @@ ActiveRecord::Base.connection.create_table(:unpublicizeds) { |t| t.string :whirl
 
 class Unpublicized < ActiveRecord::Base
 
-
 end

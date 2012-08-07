@@ -29,10 +29,10 @@ module Publicize
         @publicized_name = name.to_s.downcase.dasherize
         @publicized = true
       end
-      
+
       # Indicates whether the model has been publicized or not.
-      
-      def is_publicized?
+
+      def publicized?
         @publicized.nil? ? false : true
       end
 
@@ -48,10 +48,10 @@ module Publicize
       def publicized_name
         @publicized_name || self.name.downcase.dasherize
       end
-      
+
       # Returns the PublicizedField structure associated with the specified
       # label.
-      
+
       def select_publicized_field(label)
         publicized_fields.select {|x| x.label.to_s == label.to_s}
       end
@@ -59,9 +59,9 @@ module Publicize
     end
 
     module InstanceMethods
-      
+
       def as_json(options = {})
-        if self.class.is_publicized?
+        if self.class.publicized?
 
           # Based on ActiveRecord setting, do {"name" : {"field1" : "value1", ...}}
           if ActiveRecord::Base.include_root_in_json == true
@@ -74,9 +74,9 @@ module Publicize
           super(options)
         end
       end
-      
+
       def to_xml(options = {})
-        if self.class.is_publicized?
+        if self.class.publicized?
           xml = options[:builder] ||= Builder::XmlMarkup.new(options)
           xml.instruct! unless options[:skip_instruct]
           xml.level_one do
@@ -86,12 +86,12 @@ module Publicize
           super(options)
         end
       end
-      
+
       # Generates an ordered hash containing publicized fields for a class
       # instance. Not generally used directly by end users of the gem.
-      
+
       def publicize
-        if !self.class.is_publicized?
+        if !self.class.publicized?
           logger.warn("WARNING (Publicize): Attempted to publicize an unpublicized model")
           return nil
         end
@@ -102,9 +102,9 @@ module Publicize
         end
         hsh
       end
-      
+
     end
-    
+
   end
 end
 

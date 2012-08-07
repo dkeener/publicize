@@ -5,7 +5,7 @@ describe Publicized do
 
   context 'when publicized' do
     it 'is publicized' do
-      subject.should be_publicized
+      subject.class.should be_publicized
     end
   end
 

@@ -1,6 +1,8 @@
 ActiveRecord::Base.connection.create_table(:publicizeds) { |t| t.string :whirlygig }
 
-class Publicized < ActiveRecord::Base
+ActiveRecord::Base.send :include,Publicize
 
+class Publicized < ActiveRecord::Base
+  publicize_model :as => :entry
 end
 
